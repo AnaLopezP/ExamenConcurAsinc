@@ -28,7 +28,7 @@ class Banco():
 
     def ingresar(self, cantidad):
         self.dinero = self.dinero + cantidad
-        print()
+    
         #self.operacion += 1
     
     def retirar(self, cantidad):
