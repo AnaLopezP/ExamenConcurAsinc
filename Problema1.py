@@ -22,19 +22,26 @@ De la misma manera se desean lo siguientes procesos que retiran cantidades.
 
 
 class Banco():
-    def __init__(self, dinero, operacion):
-        dinero = 100
-        operacion = 1
+    def __init__(self):
+        self.dinero = 100
+        #operacion = 1
 
     def ingresar(self, cantidad):
-        dinero = dinero + cantidad
-        self.operacion += 1
+        self.dinero = self.dinero + cantidad
+        print()
+        #self.operacion += 1
     
     def retirar(self, cantidad):
             '''cola.join()#Paramos la cola hasta que se hayan hecho todas las operaciones
             cola.put(self.operacion)'''
-            dinero = dinero - cantidad
-            self.operacion -= 1
+            self.dinero = self.dinero - cantidad
+            #self.operacion -= 1
+
+
+def piscina(proc, func, dinero):
+    piscina = Pool(processes = proc)
+    d = piscina.map(func, dinero)
+    piscina.close()
 
 
 if __name__ == '__main__':
@@ -42,14 +49,19 @@ if __name__ == '__main__':
     c2 = 50
     c3 = 20 
     cuenta = Banco()
-    
-    piscina = Pool(processes = 40)
-    d = piscina.map(cuenta.ingresar, c1)
-    piscina.close()
-    print()
+    print("Dinero inicial: " + str(cuenta.dinero))
 
-    piscina = Pool(processes = 20)
-    d2 = piscina.map(cuenta.ingresar, c2)
-    piscina.close()
-    print()
+    piscina(40, cuenta.ingresar, 100)
+    print(cuenta.dinero)
+    piscina(20, cuenta.ingresar, 50)
+    print(cuenta.dinero)
+    piscina(60, cuenta.ingresar, 20)
+    print(cuenta.dinero)
+    piscina(40, cuenta.retirar, 100)
+    print(cuenta.dinero)
+    piscina(20, cuenta.retirar, 50)
+    print(cuenta.dinero)
+    piscina(60, cuenta.retirar, 20)
+    print(cuenta.dinero)
+
 
