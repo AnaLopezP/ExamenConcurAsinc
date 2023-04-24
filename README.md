@@ -1,3 +1,3 @@
 # ExamenConcurAsinc
 
-link: https://github.com/AnaLopezP/Filosofos.git
+link: https://github.com/AnaLopezP/ExamenConcurAsinc.git
