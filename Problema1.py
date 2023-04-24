@@ -41,10 +41,6 @@ class Banco():
         return self.dinero
     
 
-
-
-
-
 if __name__ == '__main__':
     c1 = []
     for i in range(40):
